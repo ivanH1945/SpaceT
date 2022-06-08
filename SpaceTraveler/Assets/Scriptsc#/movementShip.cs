@@ -10,6 +10,10 @@ public class movementShip : MonoBehaviour
     private float rotationforce;
     [SerializeField]
     private float direction;
+    [SerializeField]
+    AudioSource engine;
+
+
 
 
 
@@ -17,7 +21,7 @@ public class movementShip : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -26,26 +30,39 @@ public class movementShip : MonoBehaviour
         move();
     }
 
-    private void move() 
+    private void move()
     {
-        if (Input.GetKey(KeyCode.W)) 
-        {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up*speedforce*Time.deltaTime,ForceMode2D.Impulse);
+        bool engineon = false;
 
-            gameObject.GetComponent<Animator>().Play("avancegameplay",1);
-        }
-       
-        if (Input.GetKey(KeyCode.A)) 
+        if (Input.GetKey(KeyCode.W))
         {
-            transform.Rotate(0,0, rotationforce * Time.deltaTime*direction);
-           
+            gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * speedforce * Time.deltaTime, ForceMode2D.Impulse);
+            gameObject.GetComponent<Animator>().Play("avancegameplay");
+            engineon = true;
+
+        }
+
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            transform.Rotate(0, 0, rotationforce * Time.deltaTime * direction);
+
         }
         if (Input.GetKey(KeyCode.D))
         {
             transform.Rotate(0, 0, -rotationforce * Time.deltaTime * direction);
 
         }
-    }
-    
+        while (engineon == true)
+        {
+            if (engine.isPlaying == true)
+            {
+                Debug.Log("se esta reproduciendo");
+            }
+            else {
+                engine.Play();
+            } 
+        }
 
+    }
 }
