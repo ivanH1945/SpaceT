@@ -12,7 +12,11 @@ public class movementShip : MonoBehaviour
     private float direction;
     [SerializeField]
     AudioSource engine;
-
+    [SerializeField]
+    AudioSource music;
+    [SerializeField]
+    GameObject menu;
+    bool paused;
 
 
 
@@ -22,7 +26,8 @@ public class movementShip : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-   
+        paused = false;
+        unpause();
     }
 
     // Update is called once per frame
@@ -39,18 +44,18 @@ public class movementShip : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * speedforce * Time.deltaTime, ForceMode2D.Impulse);
             gameObject.GetComponent<Animator>().Play("avancegameplay");
 
-       
+
 
         }
-      
+
 
         if (Input.GetKeyDown(KeyCode.W))
         {
-         
+
             engine.Play();
 
         }
-         if (Input.GetKeyUp(KeyCode.W))
+        if (Input.GetKeyUp(KeyCode.W))
         {
 
             engine.Stop();
@@ -69,8 +74,39 @@ public class movementShip : MonoBehaviour
             transform.Rotate(0, 0, -rotationforce * Time.deltaTime * direction);
 
         }
-       
 
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (paused == false) 
+            {
+                pause();
+            }
+            else
+            {
+                unpause();
+            }
+            
+                
+        }
+
+       
     }
-    
+    public void pause()
+    {
+        menu.SetActive(true);
+        engine.Pause();
+        music.Pause();
+        Time.timeScale = 0;
+        paused = true;
+    }
+    public void unpause()
+    {
+        menu.SetActive(false);
+        engine.UnPause();
+        music.UnPause();
+        Time.timeScale = 1;
+        paused = false;
+    }
+
 }
