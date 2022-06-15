@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     public int health;
     public int currentlevel;
     public movementShip shipmgr;
+    [SerializeField]
+    private GameObject planet1;
 
 
 
@@ -17,6 +19,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         cargar();
+        planet1.active = false;
 
     }
 
@@ -61,5 +64,32 @@ public class Player : MonoBehaviour
         Time.timeScale = 1;
         guardar();
         SceneManager.LoadScene("MenuPrincipal");
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("planet1")) 
+        {
+            planet1.SetActive(true);
+
+            planet1.GetComponent<SpriteRenderer>().color = Color.white;
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("planet1"))
+        {
+            planet1.SetActive(true);
+
+            planet1.GetComponent<SpriteRenderer>().color = Color.white;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.name.Equals("planet1"))
+        {
+            planet1.SetActive(false);
+
+            planet1.GetComponent<SpriteRenderer>().color = default;
+        }
     }
 }
