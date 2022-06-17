@@ -17,9 +17,7 @@ public class movementShip : MonoBehaviour
     [SerializeField]
     GameObject menu;
     bool paused;
-
-
-
+  
 
 
 
@@ -28,6 +26,7 @@ public class movementShip : MonoBehaviour
     {
         paused = false;
         unpause();
+       
     }
 
     // Update is called once per frame
@@ -43,10 +42,18 @@ public class movementShip : MonoBehaviour
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * speedforce * Time.deltaTime, ForceMode2D.Impulse);
             gameObject.GetComponent<Animator>().Play("avancegameplay");
-
+            
 
 
         }
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift) )
+        {
+            gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * (10 * speedforce) * Time.deltaTime, ForceMode2D.Impulse);
+            gameObject.GetComponent<Animator>().Play("avancegameplay");
+        
+        }
+       
+       
 
 
         if (Input.GetKeyDown(KeyCode.W))
@@ -55,14 +62,28 @@ public class movementShip : MonoBehaviour
             engine.Play();
 
         }
+        if (Input.GetKeyDown(KeyCode.LeftShift) )
+        {
+
+            engine.Play();
+            engine.pitch=1;
+
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+
+          
+            engine.pitch = 0.42f;
+
+        }
         if (Input.GetKeyUp(KeyCode.W))
         {
 
             engine.Stop();
 
         }
-
-
+        
+        
 
         if (Input.GetKey(KeyCode.A))
         {
