@@ -9,10 +9,12 @@ public class datosdeljugador
     public int currentlevel;
 
     public float[] position = new float[3];
+    public float[] astronautposition = new float[3];
+
 
     public int credits;
 
-    public datosdeljugador(Player player) 
+    public datosdeljugador(Player player, Astronaut astronaut) 
     {
         health = player.health;
         credits = player.credits;
@@ -20,6 +22,13 @@ public class datosdeljugador
         position[0] = player.transform.position.x;
         position[1] = player.transform.position.y;
         position[2] = player.transform.position.z;
+     
+       
+        astronautposition[0] = astronaut.transform.position.x;
+        astronautposition[1] = astronaut.transform.position.y;
+        astronautposition[2] = astronaut.transform.position.z;
+
+
 
 
     }

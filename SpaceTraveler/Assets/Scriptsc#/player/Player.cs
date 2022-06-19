@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
    public GameObject healthtext;
     public GameObject leveltext;
     public GameObject creditstext;
+    Astronaut astro;
 
 
 
@@ -47,7 +48,7 @@ public class Player : MonoBehaviour
     }
     public void guardar()
     {
-        SistemaDeGuardado.saveplayerdata(this);
+        SistemaDeGuardado.saveplayerdata(this,astro );
         Debug.Log("Datasaved");
 
 
