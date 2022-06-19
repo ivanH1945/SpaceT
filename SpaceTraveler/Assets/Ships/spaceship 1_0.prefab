@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 140450911518299428}
   - component: {fileID: 140450911518299429}
   - component: {fileID: 140450911518299419}
-  - component: {fileID: 140450911518299418}
   - component: {fileID: 140450911518299421}
   m_Layer: 0
   m_Name: spaceship 1_0
@@ -272,18 +271,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &140450911518299418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 140450911518299426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a7442b8cab769445865bec603fa5121, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &140450911518299421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,3 +286,4 @@ MonoBehaviour:
   health: 0
   currentlevel: 0
   shipmgr: {fileID: 140450911518299429}
+  credits: 0

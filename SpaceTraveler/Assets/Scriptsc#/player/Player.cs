@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class Player : MonoBehaviour
 {
@@ -11,13 +13,17 @@ public class Player : MonoBehaviour
     public int currentlevel;
     public movementShip shipmgr;
     public int credits;
-   
+   public GameObject healthtext;
+    public GameObject leveltext;
+    public GameObject creditstext;
+
 
 
 
     // Start is called before the first frame update
     void Start()
     {
+
         cargar();
       
     }
@@ -25,7 +31,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        statusupdate();
     }
     
     public void cargar()
@@ -62,5 +68,10 @@ public class Player : MonoBehaviour
         guardar();
         SceneManager.LoadScene("MenuPrincipal");
     }
- 
+    public void statusupdate() 
+    {
+        healthtext.GetComponent<Text>().text = health.ToString();
+        leveltext.GetComponent<Text>().text = currentlevel.ToString();
+        creditstext.GetComponent<Text>().text = credits.ToString();
+    }
 }

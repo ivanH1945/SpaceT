@@ -5,14 +5,16 @@ TagManager:
   serializedVersion: 2
   tags:
   - planet1
+  - ship
+  - minimapicon
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - minimap icons
   - Water
   - UI
-  - 
+  - planet
   - 
   - 
   - 

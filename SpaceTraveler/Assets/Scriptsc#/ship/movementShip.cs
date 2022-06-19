@@ -17,6 +17,8 @@ public class movementShip : MonoBehaviour
     [SerializeField]
     GameObject menu;
     bool paused;
+    [SerializeField]
+    GameObject UI;
   
 
 
@@ -120,6 +122,9 @@ public class movementShip : MonoBehaviour
         music.Pause();
         Time.timeScale = 0;
         paused = true;
+        UI.SetActive(false);
+        Cursor.visible = true;
+
     }
     public void unpause()
     {
@@ -128,6 +133,9 @@ public class movementShip : MonoBehaviour
         music.UnPause();
         Time.timeScale = 1;
         paused = false;
+        UI.SetActive(true);
+        Cursor.visible = false;
+
     }
 
 }

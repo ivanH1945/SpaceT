@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ingamemenu : MonoBehaviour
+public class PlanetDetector : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // minimap
     void Start()
     {
         
