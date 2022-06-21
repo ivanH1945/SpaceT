@@ -40,7 +40,6 @@ public class ingamemenu : MonoBehaviour
     public void pause()
 {
     menu.SetActive(true);
-    
     Time.timeScale = 0;
     paused = true;
     UI.SetActive(false);
@@ -69,5 +68,10 @@ public class ingamemenu : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("MenuPrincipal");
+    }
+    public void goToOrit()
+    {
+
+        SceneManager.LoadScene("Sistema1");
     }
 }

@@ -15,16 +15,15 @@ public class Player : MonoBehaviour
    public GameObject healthtext;
     public GameObject leveltext;
     public GameObject creditstext;
+    public string CurrentScene;
   
 
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-
         cargar();
-      
     }
 
     // Update is called once per frame
@@ -42,6 +41,7 @@ public class Player : MonoBehaviour
              credits = playerdata.credits;
             this.transform.position = new Vector3(playerdata.position[0], playerdata.position[1], playerdata.position[2]);
             Debug.Log("Dataloaded");
+          
 
     }
     public void guardar()
@@ -58,4 +58,5 @@ public class Player : MonoBehaviour
         leveltext.GetComponent<Text>().text = currentlevel.ToString();
         creditstext.GetComponent<Text>().text = credits.ToString();
     }
+  
 }

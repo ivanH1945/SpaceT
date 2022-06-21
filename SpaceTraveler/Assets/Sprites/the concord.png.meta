@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1a9eae89392a20546a913c5b00d42e1a
+guid: bb51198b5f306bf4fa7ad194fd84f7f4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -116,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ui on ship_0
+      name: the concord_0
       rect:
         serializedVersion: 2
-        x: 519
-        y: 849
-        width: 213
-        height: 151
+        x: 128
+        y: 1136
+        width: 256
+        height: 317
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a3152dc3b7a47b4da8134dee9eed06a
-      internalID: 485342815
+      spriteID: 63afca96a7f4e9e42bbf0d97c0531936
+      internalID: 527817602
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui on ship_1
+      name: the concord_1
       rect:
         serializedVersion: 2
-        x: 5
-        y: 517
-        width: 135
-        height: 151
+        x: 646
+        y: 1163
+        width: 242
+        height: 235
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,20 +151,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2130a70f4e787a4aba9743a41f4f5f6
-      internalID: -1378872857
+      spriteID: 795fcec75ab7bbd418bb50806b3417e0
+      internalID: 1668314493
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui on ship_2
+      name: the concord_2
       rect:
         serializedVersion: 2
-        x: 164
-        y: 299
-        width: 71
-        height: 119
+        x: 1158
+        y: 1139
+        width: 242
+        height: 259
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,20 +172,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86daa0248daaec3449e3fbf285f1e057
-      internalID: -534953044
+      spriteID: cdb4a1aa16d3d264e8e7f18d73e5671b
+      internalID: 667426316
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui on ship_3
+      name: the concord_3
       rect:
         serializedVersion: 2
-        x: 644
-        y: 153
-        width: 193
-        height: 200
+        x: 134
+        y: 608
+        width: 242
+        height: 278
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,8 +193,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e610982273b1a7e428ebcd64de04a9d2
-      internalID: 1400608526
+      spriteID: d2a39ad524be33c4ea1fa5866e6c690b
+      internalID: -59130933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the concord_4
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 607
+        width: 242
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f05fdf9ef4d4d264d9f3f331e8cd1866
+      internalID: 433185027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the concord_5
+      rect:
+        serializedVersion: 2
+        x: 1158
+        y: 596
+        width: 242
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d02de4ad131add241889dc53797f9b93
+      internalID: -120993422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the concord_6
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 84
+        width: 242
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b874d010d13c2945a595e3f16acb1ac
+      internalID: -779857581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the concord_7
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 84
+        width: 242
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b80289bae7fa6004b952cacbe3209819
+      internalID: -448339760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: the concord_8
+      rect:
+        serializedVersion: 2
+        x: 1158
+        y: 84
+        width: 242
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 687f71b44210c27499bdce4f4348aed2
+      internalID: -517739381
       vertices: []
       indices: 
       edges: []
@@ -210,10 +315,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ui on ship_0: 485342815
-      ui on ship_3: 1400608526
-      ui on ship_1: -1378872857
-      ui on ship_2: -534953044
+      the concord_2: 667426316
+      the concord_7: -448339760
+      the concord_8: -517739381
+      the concord_6: -779857581
+      the concord_5: -120993422
+      the concord_3: -59130933
+      the concord_0: 527817602
+      the concord_4: 433185027
+      the concord_1: 1668314493
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

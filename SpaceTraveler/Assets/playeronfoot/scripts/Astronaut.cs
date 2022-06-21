@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class Astronaut : MonoBehaviour
 {
+    [SerializeField] private GameObject tabletobj;
+    bool on = false;
+
 
 
     private void Start()
@@ -14,9 +17,37 @@ public class Astronaut : MonoBehaviour
     }
     private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.T)) 
+        {
+            if (on == false)
+            {
+                getTablet();
+
+            }
+            else {
+                hidetablet();
+            }
+
+        }
     }
+
+    public void getTablet() 
+    {
   
-    
+            tabletobj.SetActive(true);
+        on = true;
+       
+    }
+    public void hidetablet()
+    {
+
+        tabletobj.SetActive(false);
+        on = false;
+        
+      
+
+    }
+
+
 
 }
