@@ -20,5 +20,6 @@ public class Menumgr : MonoBehaviour
     {
         SceneManager.LoadScene("sistema1");
     }
+    
 
 }

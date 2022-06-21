@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Sistema1.unity
     guid: e5ac28e496ca2f34688f273e24b9162e
+  - enabled: 1
+    path: Assets/Scenes/avalor.unity
+    guid: a99ad6e4cc5141347b29fe9a7b340d82
   m_configObjects: {}

@@ -6,16 +6,17 @@ public static class SistemaDeGuardado
 {
    
 
-    public static void saveplayerdata(Player player, Astronaut astronaut) // guarda datos
+    public static void saveplayerdata(Player player) // guarda datos
     {
-        datosdeljugador data = new datosdeljugador(player, astronaut);
+        datosdeljugador data = new datosdeljugador(player);
         string datapath = Application.persistentDataPath + "/player.xwing";
         FileStream fileStream = new FileStream(datapath, FileMode.Create);
         BinaryFormatter binary = new BinaryFormatter();
         binary.Serialize(fileStream, data);
         Debug.Log(datapath);
     }
-    public static datosdeljugador loadPlayerData() 
+   
+    public static datosdeljugador loadinfoplayerData() 
     {
         string datapath = Application.persistentDataPath + "/player.xwing";
         if (File.Exists(datapath))
@@ -36,4 +37,6 @@ public static class SistemaDeGuardado
         }
 
     }
-}
+    
+    }
+

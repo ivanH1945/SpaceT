@@ -11,13 +11,11 @@ public class Player : MonoBehaviour
 
     public int health;
     public int currentlevel;
-    public movementShip shipmgr;
     public int credits;
    public GameObject healthtext;
     public GameObject leveltext;
     public GameObject creditstext;
-    Astronaut astro;
-
+  
 
 
 
@@ -38,7 +36,7 @@ public class Player : MonoBehaviour
     public void cargar()
     {
         
-            datosdeljugador playerdata = SistemaDeGuardado.loadPlayerData();
+            datosdeljugador playerdata = SistemaDeGuardado.loadinfoplayerData();
             health = playerdata.health;
             currentlevel = playerdata.currentlevel;
              credits = playerdata.credits;
@@ -48,27 +46,12 @@ public class Player : MonoBehaviour
     }
     public void guardar()
     {
-        SistemaDeGuardado.saveplayerdata(this,astro );
+        SistemaDeGuardado.saveplayerdata(this );
         Debug.Log("Datasaved");
 
 
     }
-    public void exitToDesktop()
-    {
-        guardar();
-        Application.Quit();
-        Debug.Log("exit");
-
-
-    }
-    public void ExitToMenu()
-    {
-
-        shipmgr = new movementShip();
-        Time.timeScale = 1;
-        guardar();
-        SceneManager.LoadScene("MenuPrincipal");
-    }
+    
     public void statusupdate() 
     {
         healthtext.GetComponent<Text>().text = health.ToString();

@@ -13,12 +13,8 @@ public class movementShip : MonoBehaviour
     [SerializeField]
     AudioSource engine;
     [SerializeField]
-    AudioSource music;
-    [SerializeField]
-    GameObject menu;
-    bool paused;
-    [SerializeField]
-    GameObject UI;
+   
+   
   
 
 
@@ -26,9 +22,6 @@ public class movementShip : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        paused = false;
-        unpause();
-       
     }
 
     // Update is called once per frame
@@ -44,18 +37,18 @@ public class movementShip : MonoBehaviour
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * speedforce * Time.deltaTime, ForceMode2D.Impulse);
             gameObject.GetComponent<Animator>().Play("avancegameplay");
-            
+
 
 
         }
-        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift) )
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift))
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * (10 * speedforce) * Time.deltaTime, ForceMode2D.Impulse);
             gameObject.GetComponent<Animator>().Play("avancegameplay");
-        
+
         }
-       
-       
+
+
 
 
         if (Input.GetKeyDown(KeyCode.W))
@@ -64,17 +57,17 @@ public class movementShip : MonoBehaviour
             engine.Play();
 
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift) )
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
 
             engine.Play();
-            engine.pitch=1;
+            engine.pitch = 1;
 
         }
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
 
-          
+
             engine.pitch = 0.42f;
 
         }
@@ -84,8 +77,8 @@ public class movementShip : MonoBehaviour
             engine.Stop();
 
         }
-        
-        
+
+
 
         if (Input.GetKey(KeyCode.A))
         {
@@ -98,44 +91,5 @@ public class movementShip : MonoBehaviour
 
         }
 
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (paused == false) 
-            {
-                pause();
-            }
-            else
-            {
-                unpause();
-            }
-            
-                
-        }
-
-       
     }
-    public void pause()
-    {
-        menu.SetActive(true);
-        engine.Pause();
-        music.Pause();
-        Time.timeScale = 0;
-        paused = true;
-        UI.SetActive(false);
-        Cursor.visible = true;
-
-    }
-    public void unpause()
-    {
-        menu.SetActive(false);
-        engine.UnPause();
-        music.UnPause();
-        Time.timeScale = 1;
-        paused = false;
-        UI.SetActive(true);
-        Cursor.visible = false;
-
-    }
-
 }
