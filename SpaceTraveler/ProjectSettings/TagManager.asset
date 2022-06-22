@@ -7,6 +7,7 @@ TagManager:
   - planet1
   - ship
   - minimapicon
+  - ground
   layers:
   - Default
   - TransparentFX

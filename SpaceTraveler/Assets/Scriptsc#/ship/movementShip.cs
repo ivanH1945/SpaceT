@@ -43,7 +43,7 @@ public class movementShip : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift))
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * (10 * speedforce) * Time.deltaTime, ForceMode2D.Impulse);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * (5 * speedforce) * Time.deltaTime, ForceMode2D.Impulse);
             gameObject.GetComponent<Animator>().Play("avancegameplay");
 
         }
@@ -61,14 +61,14 @@ public class movementShip : MonoBehaviour
         {
 
             engine.Play();
-            engine.pitch = 1;
+            engine.pitch = 1.5f;
 
         }
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
 
 
-            engine.pitch = 0.42f;
+            engine.pitch = 1f;
 
         }
         if (Input.GetKeyUp(KeyCode.W))

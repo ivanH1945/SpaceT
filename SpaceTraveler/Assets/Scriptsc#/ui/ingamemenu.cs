@@ -8,6 +8,7 @@ public class ingamemenu : MonoBehaviour
   [SerializeField] private  GameObject menu;
     [SerializeField] private GameObject UI;
     [SerializeField] private bool paused;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +44,7 @@ public class ingamemenu : MonoBehaviour
     Time.timeScale = 0;
     paused = true;
     UI.SetActive(false);
+        Cursor.visible = true;
 
 
 }
@@ -53,9 +55,10 @@ public class ingamemenu : MonoBehaviour
     Time.timeScale = 1;
     paused = false;
     UI.SetActive(true);
+        Cursor.visible = true;
 
 
-}
+    }
     public void exitToDesktop()
     {
 
@@ -71,7 +74,6 @@ public class ingamemenu : MonoBehaviour
     }
     public void goToOrit()
     {
-
         SceneManager.LoadScene("Sistema1");
     }
 }

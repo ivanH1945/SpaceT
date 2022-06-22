@@ -7,6 +7,7 @@ public class PlanetDetector : MonoBehaviour
 {
     [SerializeField] bool onOrbit;
     [SerializeField] GameObject orbitdisplay;
+    [SerializeField] Player player;
     [SerializeField] string sceneToLoadName;
     void Start()
     {
@@ -24,7 +25,7 @@ public class PlanetDetector : MonoBehaviour
         {
             orbitdisplay.SetActive(true);
             Cursor.visible = true;
-
+            player.guardar();
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -35,8 +36,9 @@ public class PlanetDetector : MonoBehaviour
             Cursor.visible = false;
         }
     }
-    public void landInAPlanet() 
+    public void landInAPlanet()
     {
+       
         SceneManager.LoadScene(sceneToLoadName);
     }
 }

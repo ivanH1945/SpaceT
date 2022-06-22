@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32.1
+  spritePixelsToUnits: 31.9
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -1147,10 +1147,10 @@ TextureImporter:
       avalor tilemaps and little assets_7: 737511926
       avalor tilemaps and little assets_28: 941629466
       avalor tilemaps and little assets_34: -9793099
-      avalor tilemaps and little assets_0: -892482603
       avalor tilemaps and little assets_4: -66162155
-      avalor tilemaps and little assets_1: -441330530
       avalor tilemaps and little assets_32: 1147631402
+      avalor tilemaps and little assets_1: -441330530
+      avalor tilemaps and little assets_0: -892482603
       avalor tilemaps and little assets_15: -1805596157
       avalor tilemaps and little assets_16: 2092714444
       avalor tilemaps and little assets_26: -509622633
