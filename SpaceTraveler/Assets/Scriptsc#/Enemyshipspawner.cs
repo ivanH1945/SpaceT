@@ -34,7 +34,8 @@ public class Enemyshipspawner : MonoBehaviour
             float randomx = Random.Range(minSpawnAreaX, maxSpawnAreaX);
             float randomy = Random.Range(minSpawnAreaY, maxSpawnAreaY);
 
-            shipformation.transform.position=new Vector3(randomx,randomy,-512);
+            shipformation.transform.position=new Vector3(randomx,randomy,-394
+                );
         }
 
     }
