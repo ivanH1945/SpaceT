@@ -8,6 +8,7 @@ TagManager:
   - ship
   - minimapicon
   - ground
+  - enemyship
   layers:
   - Default
   - TransparentFX
