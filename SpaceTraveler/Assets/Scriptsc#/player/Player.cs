@@ -34,13 +34,17 @@ public class Player : MonoBehaviour
     
     public void cargar()
     {
-        
-            datosdeljugador playerdata = SistemaDeGuardado.loadinfoplayerData();
-            health = playerdata.health;
-            currentlevel = playerdata.currentlevel;
-             credits = playerdata.credits;
-            this.transform.position = new Vector3(playerdata.position[0], playerdata.position[1], playerdata.position[2]);
-            Debug.Log("Dataloaded");
+
+        datosdeljugador playerdata = SistemaDeGuardado.loadinfoplayerData();
+              health = playerdata.health;
+              currentlevel = playerdata.currentlevel;
+              credits = playerdata.credits;
+              this.transform.position = new Vector3(playerdata.position[0], playerdata.position[1], playerdata.position[2]);
+              Debug.Log("Dataloaded");
+        if (playerdata == null) 
+        {
+            guardar();
+        }
           
 
     }
@@ -57,6 +61,7 @@ public class Player : MonoBehaviour
         healthtext.GetComponent<Text>().text = health.ToString();
         leveltext.GetComponent<Text>().text = currentlevel.ToString();
         creditstext.GetComponent<Text>().text = credits.ToString();
+
     }
   
 }

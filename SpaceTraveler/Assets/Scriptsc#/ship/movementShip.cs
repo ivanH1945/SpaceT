@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class movementShip : MonoBehaviour
 {
     [SerializeField]
@@ -13,6 +13,7 @@ public class movementShip : MonoBehaviour
     [SerializeField]
     AudioSource engine;
     [SerializeField]
+    Text cords;
    
    
   
@@ -28,7 +29,7 @@ public class movementShip : MonoBehaviour
     void Update()
     {
         move();
-     
+        Cords();
     }
 
     private void move()
@@ -78,8 +79,6 @@ public class movementShip : MonoBehaviour
 
         }
 
-
-
         if (Input.GetKey(KeyCode.A))
         {
             transform.Rotate(0, 0, rotationforce * Time.deltaTime * direction);
@@ -91,5 +90,10 @@ public class movementShip : MonoBehaviour
 
         }
 
+    }
+
+    private void Cords()
+    {
+        cords.text = "X= " + this.gameObject.transform.position.x + "Y= " + this.transform.position.y; 
     }
 }
