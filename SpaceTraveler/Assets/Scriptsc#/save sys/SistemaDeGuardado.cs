@@ -32,7 +32,6 @@ public static class SistemaDeGuardado
         else 
         {
 
-
             return null;
         }
 
