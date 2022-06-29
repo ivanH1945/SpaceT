@@ -16,7 +16,7 @@ public class respawn : MonoBehaviour
 
     void creditosSpawn()
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 40; i++)
         {
             Vector2 randomSpawn = new Vector2(Random.Range(-54000f, 58000f), Random.Range(-57000, 54000));
             Instantiate(creditos, randomSpawn, transform.rotation);

@@ -48,9 +48,10 @@ public class charactercontroller : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && saltosRestantes > 0)
             {
             saltosRestantes = saltosRestantes - 1;
-           // rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0f);
+            rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0f);
             rigidBody.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
         }
+        
     }
     void ProcesarMovimiento()
     {
