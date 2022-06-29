@@ -6,55 +6,55 @@ using UnityEngine;
 public class IA_DE_La_Nave_Enemiga : MonoBehaviour
 {
 
+
+    private GameObject movementShip;
     [SerializeField]
-    Transform movementShip;
+    private float rangoAgro; //rango de vista del enemigo 
     [SerializeField]
-   float rangoAgro; //rango de vista del enemigo 
-    public float VelocidadDeMovimineto;
+    private float VelocidadDeMovimineto;
+    [SerializeField]
     Rigidbody2D RB2D;
+    [SerializeField]
+    private bool onrange;
 
     void Start()
     {
         RB2D = GetComponent<Rigidbody2D>();
+        movementShip = GameObject.FindGameObjectWithTag("ship");
+        onrange = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float Distancia_Del_Jugador = Vector2.Distance(transform.position, movementShip.position);
-        Debug.Log("Distancia del Jugador :" + Distancia_Del_Jugador);
-        if(Distancia_Del_Jugador < rangoAgro)
-        {
-            CorretearJugador();
-
-        }
-        else
-        {
-            NoCorretear();
-        }
+        CorretearJugador();
     }
 
-    private void NoCorretear()
-    {
-        
-    }
+    
 
     private void CorretearJugador()
     {
-      if(transform.position.x < movementShip.position.x)
+        if (onrange == true)
         {
-            RB2D.velocity = new Vector2(VelocidadDeMovimineto,0f);
+            transform.position = new Vector3(movementShip.transform.position.x + VelocidadDeMovimineto, movementShip.transform.position.y + VelocidadDeMovimineto, -394);
+            VelocidadDeMovimineto = -Time.deltaTime;
         }
-      else if(transform.position.x> movementShip.position.x)
-        {
-            RB2D.velocity = new Vector2(-VelocidadDeMovimineto, 0f);
-        }
-      if(transform.position.y < movementShip.position.y) { 
-            RB2D.velocity = new Vector2(0f, VelocidadDeMovimineto);
-    }else if(transform.position.y > movementShip.position.y)
-        {
-            RB2D.velocity = new Vector2(0f, -VelocidadDeMovimineto);
+        else {
+
         }
     }
-   
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("ship"))
+        {
+            onrange = true;
+        }
+    }
+    private void OnTriggereExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("ship"))
+        {
+            onrange = false;
+        }
+    }
 }
