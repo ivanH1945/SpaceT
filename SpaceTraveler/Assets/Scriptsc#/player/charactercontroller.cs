@@ -4,92 +4,81 @@ using UnityEngine;
 
 public class charactercontroller : MonoBehaviour
 {
-    [SerializeField] private GameObject astronaut;
-    [SerializeField] private float speed;
-    [SerializeField] private float jumpspeed;
-    [SerializeField] private bool grounded;
-    
+    public float velocidad;
+    public float fuerzaSalto;
+    public float saltosMaximos;
+    public LayerMask capaSuelo;
 
+    private Rigidbody2D rigidBody;
+    private BoxCollider2D boxCollider;
+    private bool mirandoDerecha = true;
+    private float saltosRestantes;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.visible = false;
+
+        rigidBody = GetComponent<Rigidbody2D>();
+        boxCollider = GetComponent<BoxCollider2D>();
+        saltosRestantes = saltosMaximos;
+        animator = GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        move();
+        ProcesarMovimiento();
+        ProcesarSalto();
     }
-    private void move() 
+
+    bool EstaEnSuelo()
     {
-        if (Input.GetKey(KeyCode.D)) 
-        {
-            astronaut.GetComponent<Rigidbody2D>().AddForce(new Vector2(speed * Time.deltaTime, 0));
-            astronaut.GetComponent<SpriteRenderer>().flipX = false;
-            if (grounded == true) 
-            {
-                astronaut.GetComponent<Animator>().Play("walk");
-            }
-            else
-            {
-                astronaut.GetComponent<Animator>().Play("jetpack");
-
-            }
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            astronaut.GetComponent<Rigidbody2D>().AddForce(new Vector2(-speed * Time.deltaTime, 0));
-            astronaut.GetComponent<SpriteRenderer>().flipX = true;
-            if (grounded == true)
-            {
-                astronaut.GetComponent<Animator>().Play("walk");
-            }
-            else {
-                astronaut.GetComponent<Animator>().Play("jetpack");
-
-            }
-
-        }
-        if (grounded == true && Input.GetKeyDown(KeyCode.Space)) 
-        {
-            astronaut.GetComponent<Rigidbody2D>().AddRelativeForce(new Vector2(0,jumpspeed* Time.deltaTime));
-
-        }
-        if (Input.anyKey == false && grounded) 
-        {
-            astronaut.GetComponent<Animator>().Play("iddle");
-
-        }
-        if (Input.anyKey == false && grounded==false)
-        {
-            astronaut.GetComponent<Animator>().Play("iddle");
-
-        }
-
-
+       RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, new Vector2(boxCollider.bounds.size.x, boxCollider.bounds.size.y), 0f, Vector2.down, 0.2f, capaSuelo);
+        return raycastHit.collider != null;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    void ProcesarSalto()
     {
-        if(collision.collider.CompareTag("ground")) 
+        if(EstaEnSuelo())
         {
-            grounded = true;
+            saltosRestantes = saltosMaximos;
         }
-       
+        if (Input.GetKeyDown(KeyCode.Space) && saltosRestantes > 0)
+            {
+            saltosRestantes = saltosRestantes - 1;
+            rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0f);
+            rigidBody.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
+        }
+        
     }
-    private void OnCollisionExit2D(Collision2D collision)
+    void ProcesarMovimiento()
     {
-
-        if (collision.collider.CompareTag("ground"))
+        //logica de movimiento 
+        float inputMovimiento = Input.GetAxis("Horizontal");
+        if(inputMovimiento != 0f)
         {
-            grounded = false;
-            astronaut.GetComponent<Animator>().Play("jump");
-
-
-
-
+            animator.SetBool("isRunning", true);
         }
-    }
+        else
+        {
+            animator.SetBool("isRunning", false);
+        }
 
+        rigidBody.velocity = new Vector2(inputMovimiento * velocidad, rigidBody.velocity.y);
+
+        GestionarOrientacion(inputMovimiento);
+    }
+    void GestionarOrientacion(float inputMovimiento)
+    {
+        // si cumple la condicion 
+        if ((mirandoDerecha == true && inputMovimiento < 0) || (mirandoDerecha == false && inputMovimiento > 0))
+        {
+            //Ejecutar codigo de volteado
+            mirandoDerecha = !mirandoDerecha;
+            transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+        }
+
+    }
 }
