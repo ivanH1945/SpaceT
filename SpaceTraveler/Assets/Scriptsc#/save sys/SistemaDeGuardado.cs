@@ -2,10 +2,10 @@
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-public static class SistemaDeGuardado 
+public static class SistemaDeGuardado
 {
-   
 
+    //player
     public static void saveplayerdata(Player player) // guarda datos
     {
         datosdeljugador data = new datosdeljugador(player);
@@ -15,7 +15,6 @@ public static class SistemaDeGuardado
         binary.Serialize(fileStream, data);
         Debug.Log(datapath);
     }
-   
     public static datosdeljugador loadinfoplayerData() 
     {
         string datapath = Application.persistentDataPath + "/player.xwing";
@@ -36,6 +35,38 @@ public static class SistemaDeGuardado
         }
 
     }
-    
+
+
+    //options
+    public static void savesettings(Optionsmenu settings) // guarda datos
+    {
+        Settingsprefs prefs = new Settingsprefs(settings);
+        string datapath = Application.persistentDataPath + "/player.xwingsettings";
+        FileStream fileStream = new FileStream(datapath, FileMode.Create);
+        BinaryFormatter binary = new BinaryFormatter();
+        binary.Serialize(fileStream, prefs);
+        Debug.Log(datapath);
     }
+    public static Settingsprefs loadsettings()
+    {
+        string datapath = Application.persistentDataPath + "/player.xwingsettings";
+        if (File.Exists(datapath))
+        {
+
+            FileStream fileStream = new FileStream(datapath, FileMode.Open);
+            BinaryFormatter binary = new BinaryFormatter();
+            Settingsprefs prefs = (Settingsprefs)binary.Deserialize(fileStream);
+            fileStream.Close();
+            return prefs;
+
+        }
+        else
+        {
+
+            return null;
+        }
+
+    }
+
+}
 

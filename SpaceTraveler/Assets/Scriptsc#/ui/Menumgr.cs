@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Menumgr : MonoBehaviour
 {
+    [SerializeField]
+    GameObject settingsmenu;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,10 @@ public class Menumgr : MonoBehaviour
     public void explore()
     {
         SceneManager.LoadScene("sistema1");
+    }
+    public void settings() 
+    {
+        settingsmenu.SetActive(false);
     }
     
 
