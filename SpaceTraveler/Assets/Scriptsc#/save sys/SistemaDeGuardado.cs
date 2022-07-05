@@ -37,36 +37,5 @@ public static class SistemaDeGuardado
     }
 
 
-    //options
-    public static void savesettings(Optionsmenu settings) // guarda datos
-    {
-        Settingsprefs prefs = new Settingsprefs(settings);
-        string datapath = Application.persistentDataPath + "/player.xwingsettings";
-        FileStream fileStream = new FileStream(datapath, FileMode.Create);
-        BinaryFormatter binary = new BinaryFormatter();
-        binary.Serialize(fileStream, prefs);
-        Debug.Log(datapath);
-    }
-    public static Settingsprefs loadsettings()
-    {
-        string datapath = Application.persistentDataPath + "/player.xwingsettings";
-        if (File.Exists(datapath))
-        {
-
-            FileStream fileStream = new FileStream(datapath, FileMode.Open);
-            BinaryFormatter binary = new BinaryFormatter();
-            Settingsprefs prefs = (Settingsprefs)binary.Deserialize(fileStream);
-            fileStream.Close();
-            return prefs;
-
-        }
-        else
-        {
-
-            return null;
-        }
-
-    }
-
 }
 
