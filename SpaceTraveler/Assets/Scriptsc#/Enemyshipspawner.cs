@@ -9,7 +9,8 @@ public class Enemyshipspawner : MonoBehaviour
     [SerializeField] private float maxSpawnAreaY;
     [SerializeField] private float minSpawnAreaX;
     [SerializeField] private float minSpawnAreaY;
-    
+    [SerializeField] private string tag;
+
     Vector2 randomSpawnpoint;
     GameObject ship;
     [SerializeField]GameObject[] shipsformations;
@@ -17,7 +18,7 @@ public class Enemyshipspawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        shipsformations = GameObject.FindGameObjectsWithTag("enemyship");
+        shipsformations = GameObject.FindGameObjectsWithTag(tag);
         Spawn();
     }
 

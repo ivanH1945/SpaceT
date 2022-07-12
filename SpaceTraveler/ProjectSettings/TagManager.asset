@@ -6,6 +6,9 @@ TagManager:
   tags:
   - ground
   - musichandler
+  - ship
+  - minimapicon
+  - enemyshippart
   layers:
   - Default
   - TransparentFX

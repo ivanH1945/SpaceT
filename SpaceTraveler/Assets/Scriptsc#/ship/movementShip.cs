@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class movementShip : MonoBehaviour
 {
+    [SerializeField] private Shotting buletprefab;
+    [SerializeField] private Transform Shootpos;
     [SerializeField]
     private float speedforce;
     [SerializeField]
@@ -89,6 +91,11 @@ public class movementShip : MonoBehaviour
             transform.Rotate(0, 0, -rotationforce * Time.deltaTime * direction);
 
         }
+        if (Input.GetKeyDown(KeyCode.Space)){
+           Shotting bullet=  Instantiate(buletprefab, Shootpos.position, this.transform.rotation);
+            bullet.shoot(transform.up);        
+        }
+       
 
     }
 
